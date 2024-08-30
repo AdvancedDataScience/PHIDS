@@ -3,7 +3,8 @@ import os
 
 DataDirectory="assets/all_schemes/trat/"
 UC_Files=os.listdir(DataDirectory)
-AllDirs=["cdc","gh","bod","ds","op","ip"]
+#AllDirs=["cdc","gh","bod","ds","op","ip"]
+AllDirs=["op"]
 df_list={}
 df_tmp=pd.DataFrame()
 for Folder in AllDirs:
