@@ -1,0 +1,13 @@
+#loading {
+    display: none !important;
+}
+
+body:has(#_pages_content[data-dash-is-loading="true"]) #loading {
+    display: flex !important;
+}
+
+blockquote {
+    border-left: 4px grey solid;
+    background-color: whitesmoke;
+    padding: 1rem;
+}
