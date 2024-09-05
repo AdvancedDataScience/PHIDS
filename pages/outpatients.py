@@ -173,7 +173,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             OPD_AreaName=TambonText
             if (GrpValue=='ADM2_TH'):
                 Pos=0
-                DiseaseDf=OPD_df[OPD_df['ADM2_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+                DiseaseDf=OPD_df[OPD_df['ADM2_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
                 DiseaseDf_Table=DiseaseDf.iloc[
                         page_current*page_size:(page_current+ 1)*page_size
                 ].to_dict('records')
@@ -183,7 +183,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                 #print(DiseaseDf.head(10))
                 ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
                 #print("+++++++++++Code=",DiseaseDf.iloc[Pos]['CODE'])
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 #print("AREA DF=")
                 ADM2_TH_ROW=AreaDf[AreaDf['ADM2_TH']==OPD_AreaName].index.values[0]
@@ -198,14 +198,14 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             elif(GrpValue=='ADM3_TH'):
                 RetText=f'District name: {OPD_AreaName}'
                 Pos=0
-                DiseaseDf=OPD_df[OPD_df['ADM3_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+                DiseaseDf=OPD_df[OPD_df['ADM3_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
                 DiseaseDf_Table=DiseaseDf.iloc[
                         page_current*page_size:(page_current+ 1)*page_size
                 ].to_dict('records')
                 Disease_ROW=0
                 #print(DiseaseDf.head(10))
                 ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)                
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)                
                 AreaDf_Table=AreaDf.to_dict('records')
                 ADM2_TH_ROW=AreaDf[AreaDf['ADM3_TH']==OPD_AreaName].index.values[0]
                 ADM3_TH_ROW=0
@@ -233,14 +233,14 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                 #print("Whole map clicked")
                 RetText=f'Province name: {TambonText}'
                 RetText='Waiting for area selection - Whole map clicked'
-                #DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+                #DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
                 ResText='Result text from whole map'
                 #print(".................INITIAL MAP...........",OPD_AreaName)
                 OPD_AreaName='ตราด'
                 page_current=0
                 RetText='Waiting for area selection-Area level click Province'
-                DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
-                AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
+                AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 OPD_MapData=GPD_MAP.merge(AreaDf, how='left', on="ADM2_TH")
                 OPD_MapData['N']=OPD_MapData['N'].fillna(0)
@@ -270,7 +270,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
         if (GrpValue=='ADM2_TH'):
             Pos=0
             OPD_AreaName=OPD_InitialDistrict
-            DiseaseDf=OPD_df[OPD_df['ADM2_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+            DiseaseDf=OPD_df[OPD_df['ADM2_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
             DiseaseDf_Table=DiseaseDf.iloc[
                     page_current*page_size:(page_current+ 1)*page_size
             ].to_dict('records')
@@ -279,7 +279,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             print(DiseaseDf.head(10))
             ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
             #print("+++++++++++Code=",DiseaseDf.iloc[Pos]['CODE'])
-            AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+            AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
             AreaDf_Table=AreaDf.to_dict('records')
             ADM2_TH_ROW=AreaDf[AreaDf['ADM2_TH']==OPD_AreaName].index.values[0]
             HighLightArea = [{"if": {"row_index":ADM2_TH_ROW}, "background_color":"#ffdbd8"}]
@@ -309,8 +309,8 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             OPD_AreaName='ตราด'
             page_current=0
             RetText='Waiting for area selection-Area level click Province'
-            DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
-            AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+            DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
+            AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
             AreaDf_Table=AreaDf.to_dict('records')
             OPD_Bargraph = px.bar(AreaDf_Table, y='N', x='ADM2_TH', labels={'ADM2_TH': 'District', 'N':'Total OPD cases(N)'},text_auto=True,
                 title="Out-patients diseases statistics of province")
@@ -339,7 +339,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             Pos=0
             OPD_AreaName=OPD_InitialSubdistrict
             RetText=f'District name: {OPD_AreaName}'
-            DiseaseDf=OPD_df[OPD_df['ADM3_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+            DiseaseDf=OPD_df[OPD_df['ADM3_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
             DiseaseDf_Table=DiseaseDf.iloc[
                     page_current*page_size:(page_current+ 1)*page_size
             ].to_dict('records')
@@ -348,7 +348,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             Pos=0
             #print(DiseaseDf.head(10))
             ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
-            AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+            AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
             AreaDf_Table=AreaDf.to_dict('records')
             ADM3_TH_ROW=AreaDf[AreaDf['ADM3_TH']==OPD_AreaName].index.values[0]
             HighLightArea = [{"if": {"row_index":ADM3_TH_ROW}, "background_color":"#ffdbd8"}]
@@ -375,8 +375,8 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
             TambonText='ตราด'
             GrpValue='ADM1_TH'
             RetText='Waiting for area selection - Else Area'
-            DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
-            AreaDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+            DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
+            AreaDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
             AreaDf_Table=AreaDf.to_dict('records')
             OPD_Bargraph = px.bar(AreaDf_Table, y='N', x='ADM2_TH', text_auto=True,
                 title="Out-patients diseases statistics of ..zz.. "+ TambonText)
@@ -394,7 +394,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                 Pos=(page_current*page_size)+active_cell['row']
                 #print(DiseaseDf.head(20))
                 ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 ADM2_TH_ROW=AreaDf[AreaDf['ADM2_TH']==OPD_AreaName].index.values[0]
                 HighLightArea = [{"if": {"row_index":ADM2_TH_ROW}, "background_color":"#ffdbd8"}]
@@ -422,7 +422,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                 RetText=f'District name: {OPD_AreaName}'
                 Pos=(page_current*page_size)+active_cell['row']
                 ResText = DiseaseDf.iloc[Pos]['CODE']+ " " + DiseaseDf.iloc[Pos]['Disease']
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 ADM3_TH_ROW=AreaDf[AreaDf['ADM3_TH']==OPD_AreaName].index.values[0]
                 HighLightArea = [{"if": {"row_index":ADM3_TH_ROW}, "background_color":"#ffdbd8"}]
@@ -453,8 +453,8 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                 TambonText='ตราด'
                 GrpValue='ADM1_TH'
                 RetText='Waiting for area selection - ADM1TH'
-                DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
-                AreaDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                DiseaseDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
+                AreaDf=OPD_df[OPD_df['ADM1_TH']==TambonText].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 OPD_Bargraph = px.bar(AreaDf_Table, y='N', x='ADM2_TH', labels={'ADM2_TH': 'District', 'N':'Total OPD cases(N)'},text_auto=True,
                     title="Out-patients diseases statistics of province")
@@ -467,7 +467,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                         page_current*page_size:(page_current+ 1)*page_size
                 ].to_dict('records')
                 Pos=(page_current*page_size)+1
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 ADM2_TH_ROW=AreaDf[AreaDf['ADM2_TH']==OPD_AreaName].index.values[0]
                 HighLightDisease = [{"if": {"row_index":0}, "background_color":"#ffdbd8"}]
@@ -485,7 +485,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                         page_current*page_size:(page_current+ 1)*page_size
                 ].to_dict('records')
                 Pos=(page_current*page_size)+0
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM3_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
                 AreaDf_Table=AreaDf.to_dict('records')
                 ADM3_TH_ROW=AreaDf[AreaDf['ADM3_TH']==OPD_AreaName].index.values[0]
                 HighLightDisease = [{"if": {"row_index":0}, "background_color":"#ffdbd8"}]
@@ -504,7 +504,7 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
                         page_current*page_size:(page_current+ 1)*page_size
                 ].to_dict('records')
                 Pos=(page_current*page_size)+1
-                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
+                AreaDf=OPD_df[OPD_df['CODE']==DiseaseDf.iloc[Pos]['CODE']].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
                 AreaDf_Table=AreaDf.to_dict('records')
                 OPD_MapData=GPD_MAP.merge(AreaDf, how='left', on="ADM2_TH")
                 OPD_MapData['N']=OPD_MapData['N'].fillna(0)
@@ -521,8 +521,8 @@ def UpdateAllWindows(clickData,page_current,page_size,active_cell,OPD_AreaLevel,
         OPD_AreaName='ตราด'
         page_current=0
         RetText='Waiting for area selection-Area level click Province'
-        DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False)
-        AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'count'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
+        DiseaseDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['CODE','Disease']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False)
+        AreaDf=OPD_df[OPD_df['ADM1_TH']==OPD_AreaName].groupby(['ADM2_TH']).agg({'N': 'sum'}).reset_index().sort_values(['N'],ascending=False).reset_index(drop=True)
         AreaDf_Table=AreaDf.to_dict('records')
         OPD_Bargraph = px.bar(AreaDf_Table, y='N', x='ADM2_TH', labels={'ADM2_TH': 'District', 'N':'Total OPD cases(N)'},text_auto=True,
             title="Out-patients diseases statistics of province")
