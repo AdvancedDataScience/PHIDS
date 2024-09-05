@@ -27,6 +27,14 @@ Through this APE project, I aim to acquire proficiency in several areas like -da
 >
 
 ###### Log Note:
+###### V.1.4 Created on Sep $5^{th}$ , 2024
+###### ---Actual data deploy
+###### -----Out-patients
+###### -----In-patients
+###### -----Communicable diseases patients
+
+###### V.1.3 Created on Aug $30^{th}$ , 2024
+###### ---Run production server on cloudspaces 
 
 ###### V.1.2 Created on Aug $28^{th}$ , 2024
 ###### ---Heat Map update 

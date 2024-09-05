@@ -93,7 +93,7 @@ content = html.Div(id='page-content',children=[
 					dbc.Col(children=[
                             html.H3("Diseases reference: R506"),
                             html.P("") ,
-                            html.A("https://ddc.moph.go.th/uploads/files/3181820230207100710.pdf")                   
+                            html.A('R506 related ICD-10 link.', href="https://ddc.moph.go.th/uploads/files/3181820230207100710.pdf")                   
 							],className='p-3 bg-info text-white rounded-3')
                     ])
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})
