@@ -3,4 +3,4 @@ dash==2.15.0
 dash-bootstrap-components==1.6.0
 geopandas==1.0.0
 openpyxl==3.1.2
-dash-loading-spinners=1.0.3
+dash-loading-spinners==1.0.3
