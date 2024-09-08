@@ -29,10 +29,11 @@ Through this APE project, I aim to acquire proficiency in several areas like "da
 ###### ---global health patients update 
 ###### ---death stat update 
 ###### ---communicable diseases update
+###### ---update to AdvanceDatascience account and ready to depoly on heroku
 
 ###### V.1.1 Created on Aug $3^{rd}$ , 2024 
 ###### ---Dummy table working out with dash
 
 ###### V.1.0 Created on Jul $17^{th}$ , 2024
 ###### ---Based line template creation
---update to AdvanceDatascience account and ready to depoly on heroku
+
