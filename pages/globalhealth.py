@@ -19,8 +19,8 @@ from sidebar2 import *
 dash.register_page(
     __name__,
     path='/globalhealth',
-    title='International Cases Dashboard',
-    name='International Cases Dashboard'
+    title='Global Health Dashboard',
+    name='Global Health Dashboard'
 )
 from DB_Man import *
 GPD_MAP = gpd.GeoDataFrame.from_file("Map/Trat/Tambol/Trat.shx", encoding = 'utf-8')
@@ -36,7 +36,7 @@ content = html.Div(id='page-content',children=[
             dbc.Container([
                 dbc.Row([
                     dbc.Col([
-                        html.H1('International health',className=' text-white text-center'),
+                        html.H1('Global health and international health',className=' text-white text-center'),
                     ],className='p-3 bg-info rounded-3 border-1 ')
                 ]),
 				dbc.Row([
@@ -91,13 +91,84 @@ content = html.Div(id='page-content',children=[
                 html.Hr(),
                 dbc.Row([
 					dbc.Col(children=[
-                            html.H3("Note:"),
-                            html.P("""International reffered patients' data has been subtracted from the refereal
+                            html.H3("Note:", style={'color': 'yellow'}),
+                            html.Div("""Compiled from the consolidated referral data obtained from Koh Kong, Khlong Yai, Trat Hospital, and Bangkok-Trat Hospital. 
+For instances beyond 100, there is no distinct pattern of occurrence. 
+Nevertheless, the data revealed that half of the top ten disorders were infectious, 
+while the remaining about half of referral data were attributed to traumatic accidents and 
+stroke which some of them requiring surgical procedures and advanced diagnostic procedures.
+""", style={'color': 'white', 'fontSize': 20}),
+                            dcc.Markdown("***"),
+                            html.Div("Policy recommendations:", style={'color': 'yellow', 'fontSize': 30}),
+                            html.Div("1. Infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),
+                            dcc.Markdown("""
+The policy recommendations to enhance readiness for trans-border referral infectious cases are as follows:
+
+* 1.1 Maintain a broader range of medications at Klong Yai Hospital, including those that specifically target lung infections and urinary tract inflammations.
+
+* 1.2 Setting up the infection control network, prepared for consultation among Khlong yai, Koh Kong, and infectious specialists. It is recommended to broaden this choice to include TB infection, particularly at the lung location.
+
+* 1.3 It is advisable to avoid using the most potent broad spectrum antibiotics, including drug-resistant antibiotics, because of the straightforward nature of the infections. However, if the culture results suggest otherwise, Khlong Yai should be prepared to promptly and effectively coordinate logistics from Trat hospital.
+
+* 1.4 Koh Khong Hospital should be prepared to promptly gather specimens for culture relevant to illnesses, particularly sputum culture. Khlong Yai Hospital may solicit contributions or engage in partnership with an NGO to offer this service without any cost. Management of contaminated culture medium should adhere to worldwide standard protocols.""", style={'color': 'white', 'fontSize': 20}),
+        html.Div("2. Non-infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),                                 
+dcc.Markdown("""
+* 2.1 Considering the significant number of stroke cases from Koh Khong, it is advised to arrange a CT scan to promptly and precisely identify the causes of the stroke.
+* 2.2 One patient was moved to Chantaburi due to insufficient health services available on that day. Hence, Khlong yai should develop a prompt transfer case plan, which includes the utilization of a helicopter, after an accurate diagnosis.
+* 2.3 If a stroke has been identified but no surgery is required, Khlong Yai should be prepared to provide conservative care for stroke cases, which may include reducing brain swelling with hyperosmolar drugs like mannitol, etc., until the recovery phase that requires rehabilitation.
+* 2.4 It is recommended that Koh Khong build a rehabilitation network to provide care for individuals upon their release from Wither Khlong Yai or Trat Province.
+
+Conclusively, all eight health policy recommendations require assistance from both the government and non-government sectors in the provinces. Instead of focusing on the care process, these policies should be evaluated based on the overall development in one year and the end outcome of patients.
+
+""", style={'color': 'white', 'fontSize': 20}),
+                            html.P(),
+                            html.Div("""* NOTE: International reffered patients' data has been subtracted from the refereal
                                    data system(Trat, Thailand - Koh Khong, Cambodia) since 2017-2022. 
                                    During COVID-19 outbreak, there was no case could be transferred due to closed border policy.
-                                   """)                    
-							],className='p-3 bg-info text-white rounded-3')
-                    ])
+                                   """, style={'color': 'white', 'fontSize': 14}),
+                                              
+							])
+                    ],className='p-3 bg-info text-white rounded-3'),
+            dbc.Row([
+					dbc.Col(children=[
+                            html.H3("Cambodian Note:", style={'color': 'yellow'}),
+                            html.Div("""Compiled from the consolidated referral data obtained from Koh Kong, Khlong Yai, Trat Hospital, and Bangkok-Trat Hospital. 
+For instances beyond 100, there is no distinct pattern of occurrence. 
+Nevertheless, the data revealed that half of the top ten disorders were infectious, 
+while the remaining about half of referral data were attributed to traumatic accidents and 
+stroke which some of them requiring surgical procedures and advanced diagnostic procedures.
+""", style={'color': 'white', 'fontSize': 20}),
+                            dcc.Markdown("***"),
+                            html.Div("Policy recommendations:", style={'color': 'yellow', 'fontSize': 30}),
+                            html.Div("1. Infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),
+                            dcc.Markdown("""
+The policy recommendations to enhance readiness for trans-border referral infectious cases are as follows:
+
+* 1.1 Maintain a broader range of medications at Klong Yai Hospital, including those that specifically target lung infections and urinary tract inflammations.
+
+* 1.2 Setting up the infection control network, prepared for consultation among Khlong yai, Koh Kong, and infectious specialists. It is recommended to broaden this choice to include TB infection, particularly at the lung location.
+
+* 1.3 It is advisable to avoid using the most potent broad spectrum antibiotics, including drug-resistant antibiotics, because of the straightforward nature of the infections. However, if the culture results suggest otherwise, Khlong Yai should be prepared to promptly and effectively coordinate logistics from Trat hospital.
+
+* 1.4 Koh Khong Hospital should be prepared to promptly gather specimens for culture relevant to illnesses, particularly sputum culture. Khlong Yai Hospital may solicit contributions or engage in partnership with an NGO to offer this service without any cost. Management of contaminated culture medium should adhere to worldwide standard protocols.""", style={'color': 'white', 'fontSize': 20}),
+        html.Div("2. Non-infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),                                 
+dcc.Markdown("""
+* 2.1 Considering the significant number of stroke cases from Koh Khong, it is advised to arrange a CT scan to promptly and precisely identify the causes of the stroke.
+* 2.2 One patient was moved to Chantaburi due to insufficient health services available on that day. Hence, Khlong yai should develop a prompt transfer case plan, which includes the utilization of a helicopter, after an accurate diagnosis.
+* 2.3 If a stroke has been identified but no surgery is required, Khlong Yai should be prepared to provide conservative care for stroke cases, which may include reducing brain swelling with hyperosmolar drugs like mannitol, etc., until the recovery phase that requires rehabilitation.
+* 2.4 It is recommended that Koh Khong build a rehabilitation network to provide care for individuals upon their release from Wither Khlong Yai or Trat Province.
+
+Conclusively, all eight health policy recommendations require assistance from both the government and non-government sectors in the provinces. Instead of focusing on the care process, these policies should be evaluated based on the overall development in one year and the end outcome of patients.
+
+""", style={'color': 'white', 'fontSize': 20}),
+                            html.P(),
+                            html.Div("""* NOTE: International reffered patients' data has been subtracted from the refereal
+                                   data system(Trat, Thailand - Koh Khong, Cambodia) since 2017-2022. 
+                                   During COVID-19 outbreak, there was no case could be transferred due to closed border policy.
+                                   """, style={'color': 'white', 'fontSize': 14}),
+                                              
+							])
+                    ],className='p-3 bg-success text-white rounded-3')
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})
         ],style=CONTENT_STYLE)
 
