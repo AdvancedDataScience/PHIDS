@@ -12,13 +12,24 @@ In order to make use of this large amount of data, I will develop a dashboard th
 
 Through this APE project, I aim to acquire proficiency in several areas like "data and analysis," "policy and programs," "leadership, management, and governance," and “global health leadership.”
 
+###### Log Note:
+
+###### V.1.5 Created on Sep $8^{th}$ , 2024
+###### ---Actual data deploy
+###### -----International transfer cases data
+###### -----Dead statatistic
+###### -----Update footer of all pages
+###### -----Update headline of all pages
+
 ###### V.1.4 Created on Sep $5^{th}$ , 2024
 ###### ---Actual data deploy
 ###### -----Out-patients
 ###### -----In-patients
 ###### -----Communicable diseases patients
+
 ###### V.1.3 Created on Aug $30^{th}$ , 2024
 ###### ---Run production server on cloudspaces 
+
 ###### V.1.2 Created on Aug $28^{th}$ , 2024
 ###### ---Heat Map update 
 ###### ---Diseases Table click update 
