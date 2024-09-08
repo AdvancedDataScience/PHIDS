@@ -91,8 +91,10 @@ content = html.Div(id='page-content',children=[
                 html.Hr(),
                 dbc.Row([
 					dbc.Col(children=[
-                            html.H3("AI recommended policy recommendationssss:"),
-                            html.P("--")                    
+                            html.H3("Note:"),
+                            html.P("""Patients based on three health insurance schemes of data since 2020-2022. 
+                                   All datas has been provided under PDPA law Thialand and HIPAA compliance.
+                                   """)                    
 							],className='p-3 bg-info text-white rounded-3')
                     ])
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})

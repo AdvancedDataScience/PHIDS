@@ -92,8 +92,10 @@ content = html.Div(id='page-content',children=[
                 dbc.Row([
 					dbc.Col(children=[
                             html.H3("Diseases reference: R506"),
-                            html.P("") ,
-                            html.A('R506 related ICD-10 link.', href="https://ddc.moph.go.th/uploads/files/3181820230207100710.pdf")                   
+                            html.P("""Patients based on three health insurance schemes of data since 2020-2022. 
+                                   All datas has been provided under PDPA law Thialand and HIPAA compliance.
+                                   """) ,
+                            html.A('ICD-10 declared under communicable diseases reporting system(R506) link.', href="https://ddc.moph.go.th/uploads/files/3181820230207100710.pdf")                   
 							],className='p-3 bg-info text-white rounded-3')
                     ])
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})

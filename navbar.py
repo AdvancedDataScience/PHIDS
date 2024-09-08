@@ -44,22 +44,16 @@ def create_navbar():
                 {
                 "label": html.Span(
                     [
-                        html.Span("Choose province", style={'font-size': 15, 'text-decoration': 'underline'}),
+                        html.Span("Trat", style={'font-size': 15, 'text-decoration': 'underline'})
                     ], style={'align-items': 'center', 'justify-content': 'center'}
-                    ),"value": "Choose province",
-                },
-                {
-                "label": [
-                        html.Span("Trat", style={'font-size': 15})]
-                    
-                    ,"value": "Trat",
+                    ),"value": "Trat",
                 },
                 {"label": [
-                        html.Span("Others", style={'font-size': 15})]
+                        html.Span("Other province.", style={'font-size': 15})]
                     
                     ,"value": "Others",
                 },
-                ],'Choose province', id='ChooseProvince',style={'display': 'block',
+                ],'Trat', id='ChooseProvince',style={'display': 'block',
         'width': 200}),
         dcc.Store(id="hiddenProvinceName")
         ],

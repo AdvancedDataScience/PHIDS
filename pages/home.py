@@ -27,6 +27,12 @@ Through this APE project, I aim to acquire proficiency in several areas like -da
 >
 
 ###### Log Note:
+###### V.1.5 Created on Sep $8^{th}$ , 2024
+###### ---Actual data deploy
+###### -----International transfer cases data
+###### -----Dead statatistic
+###### -----Update footer of all pages
+###### -----Update headline of all pages
 ###### V.1.4 Created on Sep $5^{th}$ , 2024
 ###### ---Actual data deploy
 ###### -----Out-patients

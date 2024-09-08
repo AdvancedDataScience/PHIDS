@@ -91,8 +91,11 @@ content = html.Div(id='page-content',children=[
                 html.Hr(),
                 dbc.Row([
 					dbc.Col(children=[
-                            html.H3("AI recommended policy recommendationssss:"),
-                            html.P("--")                    
+                            html.H3("Note:"),
+                            html.P("""International reffered patients' data has been subtracted from the refereal
+                                   data system(Trat, Thailand - Koh Khong, Cambodia) since 2017-2022. 
+                                   During COVID-19 outbreak, there was no case could be transferred due to closed border policy.
+                                   """)                    
 							],className='p-3 bg-info text-white rounded-3')
                     ])
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})

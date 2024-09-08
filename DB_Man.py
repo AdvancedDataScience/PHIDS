@@ -20,6 +20,8 @@ def AgeAtVisitDF(df_tmp):
         return result.years,result.months,result.days
     except ValueError:
         return np.nan,np.nan,np.nan
+def ToEngYear(x):
+    return x-543
 #Section 1:
 hosp_codes_full=pd.read_excel("assets/health_office_excel.xlsx")
 hosp_codes=hosp_codes_full[['รหัส 5 หลัก','รหัสจังหวัด', 'จังหวัด', 'รหัสอำเภอ', 'อำเภอ/เขต', 'รหัสตำบล','ตำบล/แขวง']].rename(columns={'รหัส 5 หลัก':'CODE5','รหัสจังหวัด':'ADM1_PCODE','จังหวัด':'ADM1_TH','รหัสอำเภอ':'ADM2_PCODE','อำเภอ/เขต':'ADM2_TH','รหัสตำบล':'ADM3_PCODE','ตำบล/แขวง':'ADM3_TH'})
@@ -151,7 +153,31 @@ CDC_df=All_CDC_Count.merge(icd_codes,left_on='pdx',right_on='CODE').merge(hosp_c
 CDC_InitialDistrict=CDC_df[['ADM2_TH','ADM2_PCODE']].sort_values('ADM2_PCODE')['ADM2_TH'].iloc[0]
 CDC_InitialSubdistrict=CDC_df[['ADM3_TH','ADM3_PCODE']].sort_values('ADM3_PCODE')['ADM3_TH'].iloc[0]
 #Dead stat--------------------------------------------------------
-DS_df=UC_Op_Count.merge(icd_codes,left_on='pdx',right_on='CODE').merge(hosp_codes,left_on='hcode',right_on='CODE5')
+if(CreateFile):
+      Folder = 'ds'
+      DataDirectory="assets/all_schemes/trat/"
+      iFiles=['death_thai_64.xlsx','death_thai_65.xlsx','death_thai_66.xlsx']
+      ds_all=pd.DataFrame()
+      SheetDict={'อ.เมือง':10696, 'อ.คลองใหญ่':10845, 'อ.เขาสมิง':10846, 'อ.บ่อไร่':10847, 'อ.แหลมงอบ':10848, 'อ.เกาะกูด':10849, 'อ.เกาะช้าง':13816}
+
+      for iFile in iFiles:
+            FileLocation=DataDirectory+Folder+"/"+iFile #print(FileLocation)
+            xl = pd.ExcelFile(FileLocation)
+            SheetList=xl.sheet_names  # see all sheet names
+            for i in SheetList:
+                  iFL=pd.read_excel(FileLocation,sheet_name=i)
+                  iFL['hcode']=SheetDict[i]
+                  iFL.rename(columns={'NCAUSE':'pdx','total':'N'},inplace=True)
+                  ds_all=pd.concat([ds_all,iFL],axis=0)
+      ds_all['serv_year']=ds_all['YEAR'].apply(ToEngYear)
+      iFile="ds.pkl.zip"
+      FileLocation=DataDirectory+Folder+"/"+iFile #print(FileLocation)
+      ds_all.to_pickle(FileLocation, compression='zip')
+else:
+      ds_all=pd.read_pickle(DataDirectory +'ds/ds.pkl.zip', compression='zip')
+
+DS_df=ds_all.merge(hosp_codes,left_on='hcode',right_on='CODE5')
+DS_df.rename(columns={'pdx':'CODE','diseasethai':'Disease'},inplace=True)
 DS_InitialDistrict=DS_df[['ADM2_TH','ADM2_PCODE']].sort_values('ADM2_PCODE')['ADM2_TH'].iloc[0]
 DS_InitialSubdistrict=DS_df[['ADM3_TH','ADM3_PCODE']].sort_values('ADM3_PCODE')['ADM3_TH'].iloc[0]
 #BOD stat---------------------------------------------------------
@@ -159,6 +185,14 @@ BOD_df=UC_Op_Count.merge(icd_codes,left_on='pdx',right_on='CODE').merge(hosp_cod
 BOD_InitialDistrict=BOD_df[['ADM2_TH','ADM2_PCODE']].sort_values('ADM2_PCODE')['ADM2_TH'].iloc[0]
 BOD_InitialSubdistrict=BOD_df[['ADM3_TH','ADM3_PCODE']].sort_values('ADM3_PCODE')['ADM3_TH'].iloc[0]
 #GH Stat----------------------------------------------------------
-GH_df=UC_Op_Count.merge(icd_codes,left_on='pdx',right_on='CODE').merge(hosp_codes,left_on='hcode',right_on='CODE5')
+
+Folder = 'gh'
+DataDirectory="assets/all_schemes/trat/"
+#IP_UC
+iFile='refer17_24.csv'
+FileLocation=DataDirectory+Folder+"/"+iFile #print(FileLocation)
+gh_refer= pd.read_csv(FileLocation,low_memory=False)
+All_GH_Count=gh_refer.groupby(['pdx','hcode']).agg({'pid': 'count'}).rename(columns={'pid':'N'}).reset_index()
+GH_df=All_GH_Count.merge(icd_codes,left_on='pdx',right_on='CODE').merge(hosp_codes,left_on='hcode',right_on='CODE5')
 GH_InitialDistrict=GH_df[['ADM2_TH','ADM2_PCODE']].sort_values('ADM2_PCODE')['ADM2_TH'].iloc[0]
 GH_InitialSubdistrict=GH_df[['ADM3_TH','ADM3_PCODE']].sort_values('ADM3_PCODE')['ADM3_TH'].iloc[0]

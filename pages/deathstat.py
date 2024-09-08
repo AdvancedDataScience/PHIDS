@@ -91,8 +91,10 @@ content = html.Div(id='page-content',children=[
                 html.Hr(),
                 dbc.Row([
 					dbc.Col(children=[
-                            html.H3("AI recommended policy recommendationssss:"),
-                            html.P("--")                    
+                            html.H3("Notes:"),
+                            html.P("""Aggregated dead data has been retrived from Ministry of Public Health, Certificate Dead data
+                                      During year 2021-2023. Only Thai people has been chosen to show.
+                                   """)                    
 							],className='p-3 bg-info text-white rounded-3')
                     ])
 	        ], fluid = True, style= {"marginTop":"30px","marginLeft":"30px"})
