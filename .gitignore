@@ -2,3 +2,13 @@ venv
 *.pyc
 .DS_Store
 .env
+.DS_Store
+.DS_Store
+.DS_Store
+assets/.DS_Store
+assets/all_schemes/.DS_Store
+assets/all_schemes/trat/.DS_Store
+assets/all_schemes/trat/gh/.DS_Store
+assets/all_schemes/trat/gh/tmp/.DS_Store
+Map/.DS_Store
+pages/.DS_Store
