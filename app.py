@@ -38,7 +38,7 @@ app.layout = dcc.Loading(  # <- Wrap App with Loading Component
     fullscreen=True  # <- Loading Spinner should take up full screen
 )
 
-
+server = app.server
 if __name__ == '__main__':
     #from waitress import serve
     #serve(app, host="127.0.0.1", port=8050)
