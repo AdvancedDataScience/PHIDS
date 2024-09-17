@@ -131,40 +131,38 @@ Conclusively, all eight health policy recommendations require assistance from bo
                     ],className='p-3 bg-info text-white rounded-3'),
             dbc.Row([
 					dbc.Col(children=[
-                            html.H3("Cambodian Note:", style={'color': 'yellow'}),
-                            html.Div("""Compiled from the consolidated referral data obtained from Koh Kong, Khlong Yai, Trat Hospital, and Bangkok-Trat Hospital. 
-For instances beyond 100, there is no distinct pattern of occurrence. 
-Nevertheless, the data revealed that half of the top ten disorders were infectious, 
-while the remaining about half of referral data were attributed to traumatic accidents and 
-stroke which some of them requiring surgical procedures and advanced diagnostic procedures.
+                            html.H3("Cambodian Note(In cambodian language):", style={'color': 'yellow'}),
+                            html.Div("""
+ចំពោះជាងមួយរយករណីគឺពុំមានអ្វីគួរឲ្យកត់សម្គាល់នោះទេ តែទោះជាយ៉ាងនេះក្តីទិន្នន័យបង្ហាញមកនោះបានឲ្យដឹងថាពាក់កណ្តាលក្នុងចំណោមដប់ករណីគឺជាប្រភេទជំងឺឆ្លង ខណៈពេលដែលពាក់កណ្តាលទៀតក្នុងចំណោមករណីបញ្ជូនគឺជាករណីប៉ះទង្គិចដោយគ្រោះថ្នាក់ផ្សេងៗ និងករណីបញ្ហាសរសៃឈាមខួរក្បាល (Stroke) ដែលមួយចំនួនក្នុងចំណោមករណីទាំងនោះត្រូវការការវះកាត់ និងត្រូវការការធ្វើរោគវិនិច្ឆ័យកម្រិតខ្ពស់។
 """, style={'color': 'white', 'fontSize': 20}),
                             dcc.Markdown("***"),
-                            html.Div("Policy recommendations:", style={'color': 'yellow', 'fontSize': 30}),
-                            html.Div("1. Infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),
+                            html.Div("ការណែនាំជាគោលនយោបាយ:", style={'color': 'yellow', 'fontSize': 30}),
+                            html.Div("1. ជំងឺឆ្លង:", style={'color': 'yellow', 'fontSize': 25}),
                             dcc.Markdown("""
-The policy recommendations to enhance readiness for trans-border referral infectious cases are as follows:
 
-* 1.1 Maintain a broader range of medications at Klong Yai Hospital, including those that specifically target lung infections and urinary tract inflammations.
+ការណែនាំជាគោលនយោបាយគឺដើម្បីលើកកម្ពស់ការត្រៀមលក្ខណៈចំពោះការបញ្ជូនករណីជំងឺឆ្លង ឆ្លងកាត់ព្រំដែនដែលមានដូចខាងក្រោម:
 
-* 1.2 Setting up the infection control network, prepared for consultation among Khlong yai, Koh Kong, and infectious specialists. It is recommended to broaden this choice to include TB infection, particularly at the lung location.
+* 1.1 ធានានូវវិសាលភាពនៃឱសថនៅមន្ទីរពេទ្យខ្លងយ៉ៃដែលរួមបញ្ចូលឱសថព្យាបាលចំគោលដៅជំងឺសួត និងជំងឺរលាកប្រព័ន្ធតម្រងនោម។
 
-* 1.3 It is advisable to avoid using the most potent broad spectrum antibiotics, including drug-resistant antibiotics, because of the straightforward nature of the infections. However, if the culture results suggest otherwise, Khlong Yai should be prepared to promptly and effectively coordinate logistics from Trat hospital.
+* 1.2 បង្កើតឡើងនូវបណ្តាញគ្រប់គ្រងជំងឺឆ្លង រៀបចំឡើងនូវការពិគ្រោះករណីជំងឺ រវាងមន្ទីរពេទ្យខ្លងយ៉ៃ កោះកុង និងគ្រូពេទ្យឯកទេសខាងជំងឺឆ្លង។ ជាគោលការណែនាំត្រូវបន្ថែមនូវជំងឺរបេងជាពិសេសរបេងសួត។
 
-* 1.4 Koh Khong Hospital should be prepared to promptly gather specimens for culture relevant to illnesses, particularly sputum culture. Khlong Yai Hospital may solicit contributions or engage in partnership with an NGO to offer this service without any cost. Management of contaminated culture medium should adhere to worldwide standard protocols.""", style={'color': 'white', 'fontSize': 20}),
-        html.Div("2. Non-infectious diseases:", style={'color': 'yellow', 'fontSize': 25}),                                 
-dcc.Markdown("""
-* 2.1 Considering the significant number of stroke cases from Koh Khong, it is advised to arrange a CT scan to promptly and precisely identify the causes of the stroke.
-* 2.2 One patient was moved to Chantaburi due to insufficient health services available on that day. Hence, Khlong yai should develop a prompt transfer case plan, which includes the utilization of a helicopter, after an accurate diagnosis.
-* 2.3 If a stroke has been identified but no surgery is required, Khlong Yai should be prepared to provide conservative care for stroke cases, which may include reducing brain swelling with hyperosmolar drugs like mannitol, etc., until the recovery phase that requires rehabilitation.
-* 2.4 It is recommended that Koh Khong build a rehabilitation network to provide care for individuals upon their release from Wither Khlong Yai or Trat Province.
+* 1.3 គួរចៀសវាងការប្រើថ្នាំងប្រឆាំងមែរោគ (ថ្នាំផ្សះ) ដែលមានកម្រិតខ្ពស់បំផុតរួមបញ្ចូលថ្នាំដែលមេរោគស៊ាំ ដោយសារមូលហេតុការឆ្លងមេរោគខ្លះនៅកម្រិតស្រាល។ ទោះជាយ៉ាងណាប្រសិនបើលទ្ធផលនៃការបណ្តុះមេរោគណែនាំឲ្យប្រើថ្នាំផ្សះផ្សេង មន្ទីរពេទ្យខ្លងយ៉ៃគួររៀបចំខ្លួនក្នុងការសម្របសម្រួលនូវអ្វីដែលមន្ទីរពេទ្យត្រាតចង់បានឲ្យមានប្រសិទ្ធភាពបំផុត។
 
-Conclusively, all eight health policy recommendations require assistance from both the government and non-government sectors in the provinces. Instead of focusing on the care process, these policies should be evaluated based on the overall development in one year and the end outcome of patients.
+* 1.4 មន្ទីរពេទ្យកោះកុងគួរតែរៀបចំខ្លួនសម្របសម្រួលក្នុងការប្រមូលសំណាកយកទៅវិភាគមេរោគ ជាពិសេសការបណ្តុះមេរោគ។ មន្ទីរពេទ្យខ្លងយ៉ៃគួរស្វែងរកដៃគូសហការ ឬចូលរួមជាមួយអង្គការក្រៅរដ្ឋាភិបាលដើម្បីផ្តល់សេវាដោយឥតគិតថ្លៃ។ ការគ្រប់គ្រងការសាយភាយមេរោគពីការបណ្តុះមេរោគគួរប្រកាន់ភ្ជាប់នូវវិសារស្តង់ដាសកលលោក។
+        """, style={'color': 'white', 'fontSize': 20}),
+        html.Div("2. ជំងឺមិនឆ្លង:", style={'color': 'yellow', 'fontSize': 25}),                                 
+dcc.Markdown("""           
+* 2.1 វិភាគនូវចំនួជាក់លាក់នៃជំងឺ Stroke ដែលមកពីកោះកុងដើម្បីរៀបចំ CT scan ឲ្យបានទាន់ពេល និងកំណត់មូលហេតុជំងឺ Stroke ឲ្យបានច្បាស់លាស់។ 
+
+* 2.2 អ្នកជំងឺម្នាក់បានផ្តូរទៅព្យាបាលនៅច័ន្ទបូរីដោយសារតែកង្វះបុគ្គលិកសុខាភិបាលនៅពេលនោះ។ ដូច្នេះហើយមន្ទីរពេទ្យខ្លងយ៉ៃគួរអភិវឌ្ឍគម្រោងករណីបញ្ជូនទាំងការប្រើប្រាស់ឧទ្ធម្ភាគចក្រក្រោយការធ្វើរោគវិនិច្ឆ័យច្បាស់លាស់។
+
+* 2.3 ប្រសិនបើរកឃើញករណី Stroke ប៉ុន្តែមិនត្រូវការការវះកាត់នោះទេ មន្ទីរពេទ្យខ្លងយ៉ៃគួរតែរៀបចំផ្តល់ការព្យាបាលករណី Stroke នៅនឹងកន្លែងដែលអាចរួមបញ្ចូលការបន្ថយការហើមខួរក្បាលដោយប្រើថ្នាំបន្ថយសម្ពាធខួរក្បាលដូចជា Manitol ជាដើម រហូតដល់ដំណាក់កាលត្រូវការស្តាយុវនិតិសម្បទាឡើងវិញ។
+
+* 2.4 គោលការណែនាំឲ្យមន្ទីរពេទ្យកោះកុងសាងសង់បណ្តាញស្តាយុវនិតិសម្បទាដើម្បីផ្តល់សេវាដល់ជនដែលត្រូវការស្តាយុវនិតិសម្បទាបន្ទាប់ពីចេញពីមន្ទីរពេទ្យខ្លងយ៉ៃ ឬមន្ទីរពេទ្យត្រាត។
 
 """, style={'color': 'white', 'fontSize': 20}),
                             html.P(),
-                            html.Div("""* NOTE: International reffered patients' data has been subtracted from the refereal
-                                   data system(Trat, Thailand - Koh Khong, Cambodia) since 2017-2022. 
-                                   During COVID-19 outbreak, there was no case could be transferred due to closed border policy.
+                            html.Div("""* ជាសេចក្តីសន្និដ្ឋាន គោលនយោបាយសុខាភិបាលទាំងប្រាំបីត្រូវការជំនួយពីរដ្ឋាភិបាលទាំងពីរ និងអង្គការក្រៅរដ្ឋាភិបាលនៅក្នុងខេត្ត។ ជំនួសដោយការផ្តោតលើការផ្តល់សេវាព្យាបាល និតិវិធី និងគោលនយោបាយទាំងនេះគួរតែត្រូវបានវាយតម្លៃក្នុងរយៈពេលមួយឆ្នាំ និងលទ្ធផលចុងក្រោយរបស់អ្នកជំងឺ។
                                    """, style={'color': 'white', 'fontSize': 14}),
                                               
 							])

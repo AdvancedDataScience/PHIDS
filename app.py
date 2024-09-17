@@ -7,7 +7,7 @@ from sidebar2 import *
 
 
 FA621 = "https://use.fontawesome.com/releases/v6.2.1/css/all.css"
-APP_TITLE = "PHIDS v 1.6"
+APP_TITLE = "First Dash App"
 
 app = Dash(
     __name__,

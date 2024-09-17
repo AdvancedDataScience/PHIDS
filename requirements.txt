@@ -1,10 +1,10 @@
-dash
+dash==2.15.0
 dash-bootstrap-components
 dash-loading-spinners
-geopandas
-matplotlib
 numpy
-openpyxl
 pandas
 libpysal
-gunicorn
+matplotlib
+plotly
+geopandas
+openpyxl
