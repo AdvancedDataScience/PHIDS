@@ -13,6 +13,10 @@ In order to make use of this large amount of data, I will develop a dashboard th
 Through this APE project, I aim to acquire proficiency in several areas like "data and analysis," "policy and programs," "leadership, management, and governance," and “global health leadership.”
 
 ###### Log Note:
+###### V.1.6 Created on Sep $17^{th}$ , 2024
+###### ---Deploy on Render version.
+###### ----Optimized files.
+###### ----Add cambodian language section.
 
 ###### V.1.5 Created on Sep $8^{th}$ , 2024
 ###### ---Actual data deploy
