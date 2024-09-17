@@ -42,4 +42,4 @@ server = app.server
 if __name__ == '__main__':
     #from waitress import serve
     #serve(app, host="127.0.0.1", port=8050)
-    app.run(debug=True)
+    app.run(port=8080,debug=True)
