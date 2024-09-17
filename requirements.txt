@@ -2,8 +2,6 @@ dash
 dash-bootstrap-components
 dash-loading-spinners
 geopandas
-ipykernel
-ipython
 matplotlib
 numpy
 openpyxl
